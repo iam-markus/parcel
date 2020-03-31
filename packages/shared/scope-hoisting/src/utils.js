@@ -42,7 +42,12 @@ export function needsPrelude(bundle: Bundle, bundleGraph: BundleGraph) {
 
   // If this is an entry bundle and it is referenced by other bundles,
   // we need to add the prelude code, which allows registering modules dynamically at runtime.
-  return isEntry(bundle, bundleGraph) && isReferenced(bundle, bundleGraph);
+  let needs =
+    isEntry(bundle, bundleGraph) &&
+    (hasAsyncDescendant(bundle, bundleGraph) ||
+      isReferenced(bundle, bundleGraph));
+
+  return needs;
 }
 
 export function isEntry(bundle: Bundle, bundleGraph: BundleGraph) {
@@ -54,12 +59,14 @@ export function isEntry(bundle: Bundle, bundleGraph: BundleGraph) {
 }
 
 export function isReferenced(bundle: Bundle, bundleGraph: BundleGraph) {
-  // A bundle is potentially referenced if there are any child or sibling JS bundles that are not isolated
-  return [
-    ...bundleGraph.getChildBundles(bundle),
-    ...bundleGraph.getSiblingBundles(bundle),
-  ].some(
-    b => b.type === 'js' && (!b.env.isIsolated() || bundle.env.isIsolated()),
+  let assets = [];
+  bundle.traverseAssets(a => {
+    assets.push(a);
+  });
+
+  // A bundle is potentially referenced if any of its assets is referenced by another js bundle
+  return assets.some(a =>
+    bundleGraph.isAssetReferencedByAnotherBundleOfType(bundle, a, 'js'),
   );
 }
 

@@ -114,7 +114,9 @@ export function link({
       }
     }
 
-    if (bundleGraph.isAssetReferencedByAnotherBundleOfType(asset, 'js')) {
+    if (
+      bundleGraph.isAssetReferencedByAnotherBundleOfType(bundle, asset, 'js')
+    ) {
       referencedAssets.add(asset);
     }
   });
@@ -386,6 +388,7 @@ export function link({
             let name = assertString(mod.meta.exportsIdentifier);
 
             let isReferenced = bundleGraph.isAssetReferencedByAnotherBundleOfType(
+              bundle,
               mod,
               'js',
             );
