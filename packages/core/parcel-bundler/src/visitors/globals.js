@@ -1,5 +1,6 @@
 const Path = require('path');
 const types = require('@babel/types');
+const utils = require('./utils');
 
 const VARS = {
   process: asset => {
@@ -28,7 +29,9 @@ module.exports = {
     if (
       VARS.hasOwnProperty(node.name) &&
       !asset.globals.has(node.name) &&
-      types.isReferenced(node, parent)
+      types.isReferenced(node, parent) &&
+      !types.isModuleSpecifier(parent) &&
+      !utils.hasBinding(ancestors, node.name)
     ) {
       asset.globals.set(node.name, VARS[node.name](asset));
     }
