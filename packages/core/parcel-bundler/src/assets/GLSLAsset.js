@@ -1,7 +1,7 @@
 const Asset = require('../Asset');
 const localRequire = require('../utils/localRequire');
 const path = require('path');
-const promisify = require('@parcel/utils/src/promisify');
+const {promisify} = require('@parcel/utils');
 const Resolver = require('../Resolver');
 
 class GLSLAsset extends Asset {

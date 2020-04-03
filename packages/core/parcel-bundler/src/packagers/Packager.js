@@ -1,5 +1,5 @@
 const fs = require('fs');
-const promisify = require('@parcel/utils/src/promisify');
+const {promisify} = require('@parcel/utils');
 const path = require('path');
 const {mkdirp} = require('@parcel/fs');
 
