@@ -5,7 +5,6 @@ const {isGlob} = require('./utils/glob');
 const fs = require('@parcel/fs');
 const micromatch = require('micromatch');
 const getModuleParts = require('./utils/getModuleParts');
-const {escapeMarkdown} = require('@parcel/utils');
 
 const EMPTY_SHIM = require.resolve('./builtins/_empty');
 
@@ -68,7 +67,7 @@ class Resolver {
     }
 
     if (!resolved) {
-      let dir = escapeMarkdown(parent ? path.dirname(parent) : process.cwd());
+      let dir = parent ? path.dirname(parent) : process.cwd();
       let err = new Error(`Cannot find module '${input}' from '${dir}'`);
       err.code = 'MODULE_NOT_FOUND';
       throw err;
