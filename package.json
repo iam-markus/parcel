@@ -21,6 +21,7 @@
     "lint:readme": "node scripts/validate-readme-toc.js",
     "precommit": "lint-staged",
     "prepublishOnly": "yarn build",
+    "test:parcel-bundler": "cross-env NODE_ENV=test mocha --config=.mocharc.parcel-bundler.json",
     "test:unit": "cross-env NODE_ENV=test mocha",
     "test:integration": "yarn workspace @parcel/integration-tests test",
     "test:integration-ci": "yarn workspace @parcel/integration-tests test-ci",

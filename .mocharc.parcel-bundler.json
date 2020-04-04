@@ -1,0 +1,5 @@
+{
+  "spec": "packages/core/parcel-bundler/test/*.js",
+  "require": ["@parcel/babel-register", "@parcel/test-utils/src/mochaSetup.js"],
+  "exit": true
+}
