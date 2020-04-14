@@ -50,6 +50,10 @@ describe('resolver', function() {
     });
   });
 
+  after(async function() {
+    await rimraf(path.join(__dirname, '/input'));
+  });
+
   describe('file paths', function() {
     it('should resolve a relative path with an extension', async function() {
       let resolved = await resolver.resolve(
