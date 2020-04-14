@@ -14,6 +14,7 @@ describe('autoinstall', function() {
   });
 
   it('should install lodash using npm and save dev dependency to package.json', async function() {
+    this.timeout(10000);
     let pkgName = 'lodash';
 
     await install([pkgName], inputDirPath + '/test.js', {

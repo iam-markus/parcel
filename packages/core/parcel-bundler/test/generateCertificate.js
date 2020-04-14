@@ -30,7 +30,8 @@ describe('generateCertificate', () => {
     assert.equal(generated.key.toString(), key.toString());
   });
 
-  it('should support caching generated certificate', async () => {
+  it('should support caching generated certificate', async function() {
+    this.timeout(10000);
     generateCertificate(cacheOptions);
 
     assert(await fs.exists(path.join(cachePath, 'private.pem')));
