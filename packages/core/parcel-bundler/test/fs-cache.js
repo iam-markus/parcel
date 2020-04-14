@@ -1,7 +1,7 @@
 const assert = require('assert');
 const path = require('path');
 const fs = require('@parcel/fs');
-const {ncp} = require('@parcel/test-utils');
+const {ncp} = require('./utils');
 const {sleep} = require('@parcel/test-utils');
 const FSCache = require('../src/FSCache');
 

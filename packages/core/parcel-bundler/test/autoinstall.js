@@ -1,7 +1,7 @@
 const assert = require('assert');
 const install = require('../src/utils/installPackage');
 const fs = require('@parcel/fs');
-const {ncp} = require('@parcel/test-utils');
+const {ncp} = require('./utils');
 const path = require('path');
 
 const inputDirPath = path.join(__dirname, '/input');
