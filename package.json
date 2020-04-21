@@ -2,6 +2,7 @@
   "name": "@parcel/monorepo",
   "description": "Blazing fast, zero configuration web application bundler",
   "license": "MIT",
+  "version": "1.2.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/parcel-bundler/parcel.git"
