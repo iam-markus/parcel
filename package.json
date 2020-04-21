@@ -2,9 +2,9 @@
   "name": "@parcel/monorepo",
   "description": "Blazing fast, zero configuration web application bundler",
   "license": "MIT",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "bin": {
-    "parcel": "./packages/core/parcel/src/bin.js"
+    "@parcel": "./packages/core/parcel/src/bin.js"
   },
   "repository": {
     "type": "git",
