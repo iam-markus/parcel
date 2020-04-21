@@ -3,6 +3,9 @@
   "description": "Blazing fast, zero configuration web application bundler",
   "license": "MIT",
   "version": "1.2.5",
+  "bin": {
+    "parcel": "./packages/core/parcel-bundler/src/cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/parcel-bundler/parcel.git"
