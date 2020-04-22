@@ -4,7 +4,7 @@
   "license": "MIT",
   "version": "1.2.10",
   "bin": {
-    "parcel": "./packages/core/parcel/src/bin.js"
+    "parcel": "./packages/core/parcel-bundler/bin/cli.js"
   },
   "repository": {
     "type": "git",
